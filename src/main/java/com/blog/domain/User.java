@@ -1,5 +1,7 @@
 package com.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class User implements Serializable{
     private String lastname;
     @Column(unique = true)
     private String email;
+    @JsonIgnore //don't pw to be included when serializing users
     private String password;
     @OneToMany(mappedBy = "user")
     private List<Post> posts = new ArrayList<>();
