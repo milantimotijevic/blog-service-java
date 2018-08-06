@@ -1,5 +1,7 @@
 package com.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ public class Category implements Serializable{
     private int id;
     private String text;
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private List<Post> posts = new ArrayList<>();
 
     public Category(){}

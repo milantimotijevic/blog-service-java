@@ -1,6 +1,8 @@
 package com.blog.dto;
 
-public class GetUserByEmailDto {
+import java.io.Serializable;
+
+public class GetUserByEmailDto implements Serializable{
     private String email;
 
     public String getEmail() {

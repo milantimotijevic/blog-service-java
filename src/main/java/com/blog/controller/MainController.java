@@ -1,11 +1,19 @@
 package com.blog.controller;
 
+import com.blog.domain.Category;
 import com.blog.domain.Post;
+import com.blog.domain.Tag;
 import com.blog.domain.User;
+import com.blog.dto.CreatePostDto;
 import com.blog.dto.GetUserByEmailDto;
+import com.blog.errorcodes.ErrorCodes;
 import com.blog.repository.*;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class MainController {
@@ -54,8 +62,34 @@ public class MainController {
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public Post createPost(@RequestBody Post post) {
-        return postRepository.save(post);
+    public CreatePostDto createPost(@RequestBody Post post, Authentication authentication) throws NotFoundException {
+        if(post.getCategory() == null) {
+            throw new NotFoundException(ErrorCodes.POST_MISSING_CATEGORY);
+        }
+        //TODO utilize CascadeType in order to avoid saving each object individually
+        Category category = categoryRepository.getOneByText(post.getCategory().getText());
+        if(category == null) {
+            throw new NotFoundException(ErrorCodes.POST_MISSING_CATEGORY);
+        }
+        User user = userRepository.getOneByEmail(authentication.getPrincipal().toString());
+        user.addPost(post);
+        category.addPost(post);
+        post.setCategory(category);
+        post.setUser(user);
+
+        List<Tag> tags = post.getTags();
+        for(Tag tag : tags) {
+            Tag tempTag = tagRepository.getOneByText(tag.getText());
+            if(tempTag != null) { //if it already exists, we don't want to create another entry
+                tag = tempTag;
+            }
+            tag.addPost(post);
+            tagRepository.save(tag);
+        }
+        userRepository.save(user);
+        categoryRepository.save(category);
+        postRepository.save(post);
+        return new CreatePostDto(post);
     }
 
 }

@@ -15,7 +15,6 @@ public class Post implements Serializable{
     private String title;
     @Column(nullable = false)
     private String body;
-    @Column(nullable = false)
     @ManyToMany
     private List<Tag> tags = new ArrayList<>();
     @ManyToOne

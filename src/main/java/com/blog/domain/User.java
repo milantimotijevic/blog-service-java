@@ -18,7 +18,6 @@ public class User implements Serializable{
     private String lastname;
     @Column(unique = true)
     private String email;
-    @JsonIgnore //don't pw to be included when serializing users
     private String password;
     @OneToMany(mappedBy = "user")
     private List<Post> posts = new ArrayList<>();
@@ -108,5 +107,9 @@ public class User implements Serializable{
 
     public void setReplies(List<Reply> replies) {
         this.replies = replies;
+    }
+
+    public void addPost(Post post) {
+        posts.add(post);
     }
 }
