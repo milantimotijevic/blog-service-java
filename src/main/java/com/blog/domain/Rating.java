@@ -16,7 +16,7 @@ public class Rating implements Serializable{
     @JsonBackReference
     private User user; //giver of rating
     @ManyToOne
-    @JsonBackReference
+    //@JsonBackReference
     private Post post;
 
     public Rating() {}

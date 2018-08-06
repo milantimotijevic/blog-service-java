@@ -1,5 +1,7 @@
 package com.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class Post implements Serializable{
     @OneToMany(mappedBy = "post")
     private List<Comment> comments = new ArrayList<>();
     @OneToMany(mappedBy = "post")
+    @JsonBackReference
     private List<Rating> ratings = new ArrayList<>();
     @ManyToOne
     private Category category;
@@ -35,10 +38,18 @@ public class Post implements Serializable{
         this.setCategory(category);
     }
 
-    public Post(String title, String body, Category category, List<Tag> tags) {
+    public Post(String title, String body, Category category, boolean published) {
         this.setTitle(title);
         this.setBody(body);
         this.setCategory(category);
+        this.setPublished(published);
+    }
+
+    public Post(String title, String body, Category category, boolean published, List<Tag> tags) {
+        this.setTitle(title);
+        this.setBody(body);
+        this.setCategory(category);
+        this.setPublished(published);
         this.setTags(tags);
     }
 

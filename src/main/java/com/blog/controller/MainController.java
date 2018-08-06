@@ -63,15 +63,16 @@ public class MainController {
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public CreatePostDto createPost(@RequestBody Post post, Authentication authentication) throws NotFoundException {
-        if(post.getCategory() == null) {
+    public CreatePostDto createPost(@RequestBody CreatePostDto createPostDto, Authentication authentication) throws NotFoundException {
+        if(createPostDto.getCategory() == null) {
             throw new NotFoundException(ErrorCodes.POST_MISSING_CATEGORY);
         }
         //TODO utilize CascadeType in order to avoid saving each object individually
-        Category category = categoryRepository.getOneByText(post.getCategory().getText());
+        Category category = categoryRepository.getOneByText(createPostDto.getCategory().getText());
         if(category == null) {
             throw new NotFoundException(ErrorCodes.POST_MISSING_CATEGORY);
         }
+        Post post = createPostDto.toPost();
         User user = userRepository.getOneByEmail(authentication.getPrincipal().toString());
         user.addPost(post);
         category.addPost(post);
@@ -105,7 +106,7 @@ public class MainController {
         return posts.stream().map(GetPostDto::new).collect(Collectors.toList());
     }
 
-    @RequestMapping(value = "/getownposts")
+    @RequestMapping(value = "/getownposts") //Posts and Drafts are differentiated by the 'published' flag; getting one's own published posts is done via passing the 'published' RequestParams, whereas getting your own drafts is done by either not passing the param or passing it with 'false' value
     public List<Post> getAllPublishedPostsByUser(@RequestParam(value = "published", required = false, defaultValue = "false") boolean published, Authentication authentication) {
         User user = userRepository.getOneByEmail(authentication.getPrincipal().toString());
         return postRepository.getAllByUserAndPublished(user, published);
@@ -149,6 +150,7 @@ public class MainController {
             }
         }
         Rating newRating = new Rating(rating, user, post);
+        post.addRating(newRating);
         ratingRepository.save(newRating);
         return postRepository.save(post);
     }

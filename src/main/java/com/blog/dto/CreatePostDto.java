@@ -1,5 +1,6 @@
 package com.blog.dto;
 
+import com.blog.domain.Category;
 import com.blog.domain.Post;
 import com.blog.domain.Tag;
 
@@ -10,6 +11,7 @@ import java.util.List;
 public class CreatePostDto implements Serializable{
     private String title;
     private String body;
+    private Category category;
     private List<Tag> tags = new ArrayList<>();
     private boolean published;
 
@@ -20,6 +22,10 @@ public class CreatePostDto implements Serializable{
         this.setBody(post.getBody());
         this.setTags(post.getTags());
         this.setPublished(post.isPublished());
+    }
+
+    public Post toPost() {
+        return new Post(getTitle(), getBody(), getCategory(), isPublished());
     }
 
     public String getTitle() {
@@ -52,5 +58,13 @@ public class CreatePostDto implements Serializable{
 
     public void setPublished(boolean published) {
         this.published = published;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
