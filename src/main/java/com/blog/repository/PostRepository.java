@@ -12,5 +12,5 @@ public interface PostRepository extends JpaRepository<Post, Integer>{
     List<Post> getAllByPublished(boolean published);
     List<Post> getAllByUserAndPublished(User user, boolean published);
     Post getOneByUserAndId(User user, int id);
-    Post getOneById(int id);
+    Post getOneByIdAndPublished(int id, boolean published);
 }

@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -137,10 +135,18 @@ public class MainController {
         if(rating < 1 || rating > 10) {
             throw new NotFoundException(ErrorCodes.RATING_OUT_OF_BOUNDS);
         }
-        Post post = postRepository.getOneById(postId);
+        Post post = postRepository.getOneByIdAndPublished(postId, true);
+        if(post == null) {
+            throw new NotFoundException(ErrorCodes.POST_NOT_FOUND); //could also mean the user is trying to rate their own draft (rating one's own published post is disabled below)
+        }
         User user = userRepository.getOneByEmail(authentication.getPrincipal().toString());
         if(post.getUser().getId() == user.getId()) { //means the user is trying to rate their own post (naughty naughty!)
             throw new NotFoundException(ErrorCodes.CANNOT_RATE_OWN_POST);
+        }
+        for(Rating currentRating : post.getRatings()) {
+            if(currentRating.getUser().getId() == user.getId()) { //means the user has already rated this post
+                throw new NotFoundException(ErrorCodes.ALREADY_RATED);
+            }
         }
         Rating newRating = new Rating(rating, user, post);
         ratingRepository.save(newRating);

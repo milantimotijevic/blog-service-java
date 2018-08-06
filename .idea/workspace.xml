@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc0aa81f-d2b1-460f-97ed-c0fadce2deee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/blog/dto/RegisterUserRequestDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blog/controller/MainController.class" afterPath="$PROJECT_DIR$/target/classes/com/blog/controller/MainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blog/domain/Post.class" afterPath="$PROJECT_DIR$/target/classes/com/blog/domain/Post.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blog/domain/Rating.class" afterPath="$PROJECT_DIR$/target/classes/com/blog/domain/Rating.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blog/dto/GetPostDto.class" afterPath="$PROJECT_DIR$/target/classes/com/blog/dto/GetPostDto.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blog/errorcodes/ErrorCodes.class" afterPath="$PROJECT_DIR$/target/classes/com/blog/errorcodes/ErrorCodes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blog/repository/PostRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/blog/repository/PostRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/domain/Post.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/domain/Post.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/domain/Rating.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/domain/Rating.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/domain/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/domain/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/dto/GetPostDto.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/dto/GetPostDto.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/errorcodes/ErrorCodes.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/errorcodes/ErrorCodes.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/repository/PostRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/repository/PostRepository.java" />
     </list>
@@ -33,8 +21,8 @@
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/blog/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="137" column="73" lean-forward="false" selection-start-line="137" selection-start-column="73" selection-end-line="137" selection-end-column="73" />
+            <state relative-caret-position="283">
+              <caret line="145" column="55" lean-forward="true" selection-start-line="145" selection-start-column="55" selection-end-line="145" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,8 +73,8 @@
       <file leaf-file-name="ErrorCodes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/blog/errorcodes/ErrorCodes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="93" lean-forward="false" selection-start-line="7" selection-start-column="93" selection-end-line="7" selection-end-column="93" />
+            <state relative-caret-position="162">
+              <caret line="9" column="82" lean-forward="false" selection-start-line="9" selection-start-column="82" selection-end-line="9" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -144,7 +132,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/blog/repository/PostRepository.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+              <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -250,13 +238,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/blog/domain/Category.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/blog/domain/Tag.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/blog/dto/GetPostDto.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/blog/repository/PostRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/blog/domain/Rating.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/blog/domain/Post.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/blog/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/blog/dto/RegisterUserRequestDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/blog/errorcodes/ErrorCodes.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/blog/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/blog/repository/PostRepository.java" />
       </list>
     </option>
   </component>
@@ -997,12 +985,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533538363472</updated>
-      <workItem from="1533538367817" duration="26803000" />
+      <workItem from="1533538367817" duration="27708000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26803000" />
+    <option name="totallyTimeSpent" value="27708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="2495" height="1084" extended-state="6" />
@@ -1393,16 +1381,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/blog/repository/PostRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar!/javassist/tools/web/BadHttpRequest.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -1515,16 +1493,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/blog/errorcodes/ErrorCodes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="93" lean-forward="false" selection-start-line="7" selection-start-column="93" selection-end-line="7" selection-end-column="93" />
+        <state relative-caret-position="162">
+          <caret line="9" column="82" lean-forward="false" selection-start-line="9" selection-start-column="82" selection-end-line="9" selection-end-column="82" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/blog/repository/PostRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/blog/controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="137" column="73" lean-forward="false" selection-start-line="137" selection-start-column="73" selection-end-line="137" selection-end-column="73" />
+        <state relative-caret-position="283">
+          <caret line="145" column="55" lean-forward="true" selection-start-line="145" selection-start-column="55" selection-end-line="145" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
