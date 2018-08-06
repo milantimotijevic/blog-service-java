@@ -1,12 +1,10 @@
 package com.blog.controller;
 
-import com.blog.domain.Category;
-import com.blog.domain.Post;
-import com.blog.domain.Tag;
-import com.blog.domain.User;
+import com.blog.domain.*;
 import com.blog.dto.CreatePostDto;
 import com.blog.dto.GetPostDto;
 import com.blog.dto.GetUserByEmailDto;
+import com.blog.dto.RegisterUserRequestDto;
 import com.blog.errorcodes.ErrorCodes;
 import com.blog.repository.*;
 import javassist.NotFoundException;
@@ -54,8 +52,9 @@ public class MainController {
         return "This data is extremely sensitive and only an authenticated user may see it!";
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public User registerUser(@RequestBody User user) {
+    @RequestMapping(value = "/register", method = RequestMethod.POST) //TODO properly SQL exception in case of trying to register a user with existing username (email)
+    public User registerUser(@RequestBody RegisterUserRequestDto userDto) {
+        User user = userDto.toUser();
         return userRepository.save(user);
     }
 
@@ -114,4 +113,37 @@ public class MainController {
         return postRepository.getAllByUserAndPublished(user, published);
     }
 
+    @RequestMapping(value = "/editpost", method = RequestMethod.PUT)
+    public Post editPost(@RequestBody Post post, Authentication authentication) throws NotFoundException { //only drafts can be edited; we determine whether a Post is a draft or not by 'published' flag (in other words there's no Draft entity)
+        User user = userRepository.getOneByEmail(authentication.getPrincipal().toString());
+        Post tempPost = postRepository.getOneByUserAndId(user, post.getId());
+        if(tempPost == null) { //means user is trying to edit a post they did not create, or the post simply does not exist
+            throw new NotFoundException(ErrorCodes.POST_USER_MISMATCH); //TODO create wrapper so I can throw appropriate exception with appropriate error message
+        }
+        if(tempPost.isPublished()) {
+            throw new NotFoundException(ErrorCodes.NOT_DRAFT);
+        }
+        //good to go with editing post; only want to allow editing of basic properties
+        tempPost.setTags(post.getTags());
+        tempPost.setCategory(post.getCategory());
+        tempPost.setBody(post.getBody());
+        tempPost.setTitle(post.getTitle());
+
+        return postRepository.save(tempPost);
+    }
+
+    @RequestMapping(value = "/rate/{postId}/{rating}")
+    public Post ratePost(@PathVariable int postId, @PathVariable int rating, Authentication authentication) throws NotFoundException {
+        if(rating < 1 || rating > 10) {
+            throw new NotFoundException(ErrorCodes.RATING_OUT_OF_BOUNDS);
+        }
+        Post post = postRepository.getOneById(postId);
+        User user = userRepository.getOneByEmail(authentication.getPrincipal().toString());
+        if(post.getUser().getId() == user.getId()) { //means the user is trying to rate their own post (naughty naughty!)
+            throw new NotFoundException(ErrorCodes.CANNOT_RATE_OWN_POST);
+        }
+        Rating newRating = new Rating(rating, user, post);
+        ratingRepository.save(newRating);
+        return postRepository.save(post);
+    }
 }

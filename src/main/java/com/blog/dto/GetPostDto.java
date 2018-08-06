@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class GetPostDto implements Serializable{
+    private int id;
     private String title;
     private String body;
     private List<Tag> tags;
@@ -18,6 +19,7 @@ public class GetPostDto implements Serializable{
     public GetPostDto() {}
 
     public GetPostDto(Post post) {
+        this.setId(post.getId());
         this.setTitle(post.getTitle());
         this.setBody(post.getBody());
         this.setTags(post.getTags());
@@ -26,6 +28,14 @@ public class GetPostDto implements Serializable{
         this.setUserFirstname(post.getUser().getFirstname());
         this.setUserLastname(post.getUser().getLastname());
         this.setAverageRating(post.getRatings().stream().mapToDouble(Rating::getValue).average().orElse(0));
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -91,4 +101,5 @@ public class GetPostDto implements Serializable{
     public void setAverageRating(double averageRating) {
         this.averageRating = averageRating;
     }
+
 }

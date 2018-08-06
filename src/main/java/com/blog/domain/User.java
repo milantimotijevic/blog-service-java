@@ -17,7 +17,7 @@ public class User implements Serializable{
 
     private String firstname;
     private String lastname;
-    @Column(unique = true)
+    @Column(unique = true) //Hibernate won't allow registration of a user with an existing email (username)
     private String email;
     private String password;
     @OneToMany(mappedBy = "user")

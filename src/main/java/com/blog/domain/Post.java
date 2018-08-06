@@ -129,4 +129,8 @@ public class Post implements Serializable{
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+
+    public void addRating(Rating rating) {
+        this.ratings.add(rating);
+    }
 }

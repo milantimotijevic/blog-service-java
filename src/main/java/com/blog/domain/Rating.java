@@ -13,6 +13,7 @@ public class Rating implements Serializable{
     private int id;
     private int value;
     @ManyToOne
+    @JsonBackReference
     private User user; //giver of rating
     @ManyToOne
     @JsonBackReference
