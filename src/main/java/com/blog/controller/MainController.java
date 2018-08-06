@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -78,14 +79,17 @@ public class MainController {
         post.setUser(user);
 
         List<Tag> tags = post.getTags();
+        List<Tag> tempTags = new ArrayList<>();
         for(Tag tag : tags) {
             Tag tempTag = tagRepository.getOneByText(tag.getText());
             if(tempTag != null) { //if it already exists, we don't want to create another entry
                 tag = tempTag;
             }
             tag.addPost(post);
-            tagRepository.save(tag);
+            tag = tagRepository.save(tag);
+            tempTags.add(tag);
         }
+        post.setTags(tempTags);
         userRepository.save(user);
         categoryRepository.save(category);
         postRepository.save(post);
