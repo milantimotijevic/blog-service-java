@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,6 +98,14 @@ public class MainController {
         categoryRepository.save(category);
         postRepository.save(post);
         return new CreatePostDto(post);
+    }
+
+    @RequestMapping(value = "/getownposts")
+    public List<Post> getAllPublishedPostsByUser(@RequestParam(value = "published", required = false, defaultValue = "false") boolean published, Authentication authentication) {
+        System.out.println("Query param is:");
+        System.out.println(published);
+        User user = userRepository.getOneByEmail(authentication.getPrincipal().toString());
+        return postRepository.getAllByUserAndPublished(user, published);
     }
 
 }

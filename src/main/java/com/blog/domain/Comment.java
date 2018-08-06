@@ -1,5 +1,7 @@
 package com.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ public class Comment implements Serializable{
 
     private String text;
     @ManyToOne
+    @JsonBackReference
     private Post post;
     @ManyToOne
     private User user;

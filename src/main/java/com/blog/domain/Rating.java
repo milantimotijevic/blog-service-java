@@ -1,5 +1,7 @@
 package com.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -13,6 +15,7 @@ public class Rating implements Serializable{
     @ManyToOne
     private User user; //giver of rating
     @ManyToOne
+    @JsonBackReference
     private Post post;
 
     public Rating() {}

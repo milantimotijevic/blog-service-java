@@ -1,5 +1,6 @@
 package com.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ public class Category implements Serializable{
     private int id;
     private String text;
     @OneToMany(mappedBy = "category")
-    @JsonIgnore
+    @JsonBackReference
     private List<Post> posts = new ArrayList<>();
 
     public Category(){}

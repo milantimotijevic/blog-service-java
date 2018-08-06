@@ -1,5 +1,6 @@
 package com.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class User implements Serializable{
     private String email;
     private String password;
     @OneToMany(mappedBy = "user")
+    @JsonBackReference
     private List<Post> posts = new ArrayList<>();
     @OneToMany(mappedBy = "user")
     private List<Rating> ratings = new ArrayList<>(); //ratings given to other people's posts

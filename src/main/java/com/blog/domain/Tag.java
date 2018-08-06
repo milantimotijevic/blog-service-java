@@ -1,5 +1,7 @@
 package com.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ public class Tag implements Serializable{
     private int id;
     private String text;
     @ManyToMany
+    @JsonBackReference
     private List<Post> posts = new ArrayList<>();
 
     public Tag() {}
