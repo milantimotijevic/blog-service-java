@@ -117,4 +117,8 @@ public class Post implements Serializable{
     public void addComment(Comment comment) {
         comments.add(comment);
     }
+
+    public void addTag(Tag tag) {
+        tags.add(tag);
+    }
 }

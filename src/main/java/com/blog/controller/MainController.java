@@ -78,18 +78,21 @@ public class MainController {
         post.setCategory(category);
         post.setUser(user);
 
-        List<Tag> tags = post.getTags();
-        List<Tag> tempTags = new ArrayList<>();
-        for(Tag tag : tags) {
-            Tag tempTag = tagRepository.getOneByText(tag.getText());
-            if(tempTag != null) { //if it already exists, we don't want to create another entry
-                tag = tempTag;
-            }
-            tag.addPost(post);
-            tag = tagRepository.save(tag);
-            tempTags.add(tag);
-        }
-        post.setTags(tempTags);
+//        List<Tag> tags = post.getTags();
+//        for(Tag tag : tags) {
+//            Tag tempTag = tagRepository.getOneByText(tag.getText());
+//            if(tempTag != null) { //if it already exists, we don't want to create another entry
+//                tag = tempTag;
+//            }
+//            tag.getPosts().add(post);
+//            post.getTags().add(tag);
+//            userRepository.save(user);
+//            categoryRepository.save(category);
+//            postRepository.save(post);
+//            tagRepository.save(tag);
+//            postRepository.save(post);
+//        }
+        post.setTags(null); //TODO handle tags
         userRepository.save(user);
         categoryRepository.save(category);
         postRepository.save(post);
