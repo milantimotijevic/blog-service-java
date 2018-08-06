@@ -100,6 +100,12 @@ public class MainController {
         return new CreatePostDto(post);
     }
 
+    @RequestMapping(value = "/getallposts")
+    public List<Post> getAllPublishedPosts() {
+        List<Post> posts = postRepository.getAllByPublished(true);
+        return posts;
+    }
+
     @RequestMapping(value = "/getownposts")
     public List<Post> getAllPublishedPostsByUser(@RequestParam(value = "published", required = false, defaultValue = "false") boolean published, Authentication authentication) {
         User user = userRepository.getOneByEmail(authentication.getPrincipal().toString());

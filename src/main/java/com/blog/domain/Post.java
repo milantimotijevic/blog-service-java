@@ -43,11 +43,11 @@ public class Post implements Serializable{
     }
 
     public List<Comment> getReplies() {
-        return comments;
+        return getComments();
     }
 
     public void setReplies(List<Comment> comments) {
-        this.comments = comments;
+        this.setComments(comments);
     }
 
     public int getId() {
@@ -115,10 +115,18 @@ public class Post implements Serializable{
     }
 
     public void addComment(Comment comment) {
-        comments.add(comment);
+        getComments().add(comment);
     }
 
     public void addTag(Tag tag) {
-        tags.add(tag);
+        getTags().add(tag);
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

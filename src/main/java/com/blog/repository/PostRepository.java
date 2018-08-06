@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface PostRepository extends JpaRepository<Post, Integer>{
+    List<Post> getAllByPublished(boolean published);
     List<Post> getAllByUserAndPublished(User user, boolean published);
 }
