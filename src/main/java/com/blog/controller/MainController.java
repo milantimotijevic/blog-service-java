@@ -102,8 +102,6 @@ public class MainController {
 
     @RequestMapping(value = "/getownposts")
     public List<Post> getAllPublishedPostsByUser(@RequestParam(value = "published", required = false, defaultValue = "false") boolean published, Authentication authentication) {
-        System.out.println("Query param is:");
-        System.out.println(published);
         User user = userRepository.getOneByEmail(authentication.getPrincipal().toString());
         return postRepository.getAllByUserAndPublished(user, published);
     }

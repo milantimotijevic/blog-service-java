@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc0aa81f-d2b1-460f-97ed-c0fadce2deee" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/blog/dto/GetPostDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blog/controller/MainController.class" afterPath="$PROJECT_DIR$/target/classes/com/blog/controller/MainController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blog/repository/PostRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/blog/repository/PostRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/blog/repository/UserRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/blog/repository/UserRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/domain/Category.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/domain/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/domain/Comment.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/domain/Comment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/domain/Rating.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/domain/Rating.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/domain/Tag.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/domain/Tag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/domain/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/domain/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/repository/PostRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/repository/PostRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blog/repository/UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/blog/repository/UserRepository.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -31,8 +19,8 @@
       <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/blog/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="102" column="43" lean-forward="false" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="43" />
+            <state relative-caret-position="369">
+              <caret line="103" column="177" lean-forward="false" selection-start-line="103" selection-start-column="177" selection-end-line="103" selection-end-column="177" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -871,12 +859,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1533538363472</updated>
-      <workItem from="1533538367817" duration="20634000" />
+      <workItem from="1533538367817" duration="20878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20634000" />
+    <option name="totallyTimeSpent" value="20878000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="-4" width="2495" height="1084" extended-state="6" />
@@ -1302,8 +1290,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/blog/controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="102" column="43" lean-forward="false" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="43" />
+        <state relative-caret-position="369">
+          <caret line="103" column="177" lean-forward="false" selection-start-line="103" selection-start-column="177" selection-end-line="103" selection-end-column="177" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
